@@ -1,0 +1,557 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{4CF0BEC0-9FBF-4F27-B416-9E84E9C9A249}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <RootNamespace>dynamic.ghosts</RootNamespace>
+    <AssemblyName>dynamic.ghosts</AssemblyName>
+    <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Sandbox.Engine">
+      <HintPath>D:\SteamLibrary\steamapps\common\sbox\bin\managed\Sandbox.Engine.dll</HintPath>
+    </Reference>
+    <Reference Include="Sandbox.Event">
+      <HintPath>D:\SteamLibrary\steamapps\common\sbox\bin\managed\Sandbox.Event.dll</HintPath>
+    </Reference>
+    <Reference Include="Sandbox.Game">
+      <HintPath>D:\SteamLibrary\steamapps\common\sbox\bin\managed\Sandbox.Game.dll</HintPath>
+    </Reference>
+    <Reference Include="Sandbox.Reflection">
+      <HintPath>D:\SteamLibrary\steamapps\common\sbox\bin\managed\Sandbox.Reflection.dll</HintPath>
+    </Reference>
+    <Reference Include="Sandbox.System">
+      <HintPath>D:\SteamLibrary\steamapps\common\sbox\bin\managed\Sandbox.System.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Linq">
+      <HintPath>..\..\..\..\..\..\Program Files\dotnet\shared\Microsoft.NETCore.App\6.0.6\System.Linq.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Private.CoreLib">
+      <HintPath>..\..\..\..\..\..\Program Files\dotnet\shared\Microsoft.NETCore.App\6.0.6\System.Private.CoreLib.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Text.Json">
+      <HintPath>..\..\..\..\..\..\Program Files\dotnet\shared\Microsoft.NETCore.App\6.0.6\System.Text.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Text.RegularExpressions">
+      <HintPath>..\..\..\..\..\..\Program Files\dotnet\shared\Microsoft.NETCore.App\6.0.6\System.Text.RegularExpressions.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <AppDesigner Include="Properties\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Crosshair.cs" />
+    <Compile Include="FastNoiseLite.cs" />
+    <Compile Include="Fists.cs" />
+    <Compile Include="GlobalRpcHandler.cs" />
+    <Compile Include="Kryz\Tweening\EasingFunctions.cs" />
+    <Compile Include="Microsoft\CodeAnalysis\EmbeddedAttribute.cs" />
+    <Compile Include="NavPath.cs" />
+    <Compile Include="NavSteer.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="SandboxGame.cs" />
+    <Compile Include="Sandbox\AnimatedMapEntity.cs" />
+    <Compile Include="Sandbox\BallSocketConstraint.cs" />
+    <Compile Include="Sandbox\BaseCarriable.cs" />
+    <Compile Include="Sandbox\BaseConstraint.cs" />
+    <Compile Include="Sandbox\BaseInventory.cs" />
+    <Compile Include="Sandbox\BasePathEntity.cs" />
+    <Compile Include="Sandbox\BasePathNode.cs" />
+    <Compile Include="Sandbox\BasePathNodeEntity.cs" />
+    <Compile Include="Sandbox\BasePhysics.cs" />
+    <Compile Include="Sandbox\BasePlayerController.cs" />
+    <Compile Include="Sandbox\BaseTrigger.cs" />
+    <Compile Include="Sandbox\BaseViewModel.cs" />
+    <Compile Include="Sandbox\BaseWeapon.cs" />
+    <Compile Include="Sandbox\Breakables.cs" />
+    <Compile Include="Sandbox\BrushEntity.cs" />
+    <Compile Include="Sandbox\ButtonEntity.cs" />
+    <Compile Include="Sandbox\CameraEntity.cs" />
+    <Compile Include="Sandbox\CameraMode.cs" />
+    <Compile Include="Sandbox\camera\FirstPersonDeathCamera.cs" />
+    <Compile Include="Sandbox\camera\HitFlinch.cs" />
+    <Compile Include="Sandbox\CitizenAnimationHelper.cs" />
+    <Compile Include="Sandbox\ClothingContainer.cs" />
+    <Compile Include="Sandbox\ColorPanel.cs" />
+    <Compile Include="Sandbox\Debug\Draw.cs" />
+    <Compile Include="Sandbox\Debug\settings\ClientSettings.cs" />
+    <Compile Include="Sandbox\Debug\settings\ServerSettings.cs" />
+    <Compile Include="Sandbox\DecalSystem.cs" />
+    <Compile Include="Sandbox\DevCamera.cs" />
+    <Compile Include="Sandbox\DevCamPP.cs" />
+    <Compile Include="Sandbox\DevCamSettings.cs" />
+    <Compile Include="Sandbox\DevCommands.cs" />
+    <Compile Include="Sandbox\DofPanel.cs" />
+    <Compile Include="Sandbox\DoorEntity.cs" />
+    <Compile Include="Sandbox\Duck.cs" />
+    <Compile Include="Sandbox\EntityExtensions.cs" />
+    <Compile Include="Sandbox\EntityLimit.cs" />
+    <Compile Include="Sandbox\ExplosionEntity.cs" />
+    <Compile Include="Sandbox\FirstPersonCamera.cs" />
+    <Compile Include="Sandbox\FixedCamera.cs" />
+    <Compile Include="Sandbox\FlyingController.cs" />
+    <Compile Include="Sandbox\Game.cs" />
+    <Compile Include="Sandbox\GenericPathEntity.cs" />
+    <Compile Include="Sandbox\GlassShard.cs" />
+    <Compile Include="Sandbox\GradientFogEntity.cs" />
+    <Compile Include="Sandbox\HingeConstraint.cs" />
+    <Compile Include="Sandbox\Hooks\Chat.cs" />
+    <Compile Include="Sandbox\HudEntity.cs" />
+    <Compile Include="Sandbox\HurtVolumeEntity.cs" />
+    <Compile Include="Sandbox\IBaseInventory.cs" />
+    <Compile Include="Sandbox\IBasePathNode.cs" />
+    <Compile Include="Sandbox\IListExtension.cs" />
+    <Compile Include="Sandbox\IModelBreakCommand.cs" />
+    <Compile Include="Sandbox\Internal\ModelBreakParticle.cs" />
+    <Compile Include="Sandbox\Internal\ModelBreakPieceApplyForce.cs" />
+    <Compile Include="Sandbox\Internal\ModelBreakPieceMaterialGroup.cs" />
+    <Compile Include="Sandbox\Internal\ModelBreakPieceRevoluteJoint.cs" />
+    <Compile Include="Sandbox\Internal\Tests\CmdTest.cs" />
+    <Compile Include="Sandbox\KeyframeEntity.cs" />
+    <Compile Include="Sandbox\LeaderboardExtensions.cs" />
+    <Compile Include="Sandbox\LengthConstraint.cs" />
+    <Compile Include="Sandbox\LogicEntity.cs" />
+    <Compile Include="Sandbox\LookAtCamera.cs" />
+    <Compile Include="Sandbox\ModelBodygroupDrivenMorph.cs" />
+    <Compile Include="Sandbox\ModelBoxAOProxy.cs" />
+    <Compile Include="Sandbox\ModelBreakPiece.cs" />
+    <Compile Include="Sandbox\ModelCapsuleAOProxy.cs" />
+    <Compile Include="Sandbox\ModelDoorSounds.cs" />
+    <Compile Include="Sandbox\ModelExplosionBehavior.cs" />
+    <Compile Include="Sandbox\ModelExtensions.cs" />
+    <Compile Include="Sandbox\ModelEye.cs" />
+    <Compile Include="Sandbox\ModelEyeOcclusion.cs" />
+    <Compile Include="Sandbox\ModelMaterialGroupDrivenMorph.cs" />
+    <Compile Include="Sandbox\ModelNavData.cs" />
+    <Compile Include="Sandbox\ModelPropData.cs" />
+    <Compile Include="Sandbox\MonitorEntity.cs" />
+    <Compile Include="Sandbox\MoveHelper.cs" />
+    <Compile Include="Sandbox\MovementPathEntity.cs" />
+    <Compile Include="Sandbox\MovementPathNodeEntity.cs" />
+    <Compile Include="Sandbox\NavBlockerEntity.cs" />
+    <Compile Include="Sandbox\NoclipController.cs" />
+    <Compile Include="Sandbox\NPCAttribute.cs" />
+    <Compile Include="Sandbox\ParticleSystemEntity.cs" />
+    <Compile Include="Sandbox\PathPlatformEntity.cs" />
+    <Compile Include="Sandbox\PawnAnimator.cs" />
+    <Compile Include="Sandbox\PawnController.cs" />
+    <Compile Include="Sandbox\PhysicsBrushEntity.cs" />
+    <Compile Include="Sandbox\PickupTrigger.cs" />
+    <Compile Include="Sandbox\PlanarReflection.cs" />
+    <Compile Include="Sandbox\PlatformEntity.cs" />
+    <Compile Include="Sandbox\Player.cs" />
+    <Compile Include="Sandbox\player\assets\CameraMotion.cs" />
+    <Compile Include="Sandbox\player\assets\Stamina.cs" />
+    <Compile Include="Sandbox\PostProcessingEntity.cs" />
+    <Compile Include="Sandbox\PostProcessingVolume.cs" />
+    <Compile Include="Sandbox\PrecipitationEntity.cs" />
+    <Compile Include="Sandbox\Prop.cs" />
+    <Compile Include="Sandbox\PropGib.cs" />
+    <Compile Include="Sandbox\PulleyConstraint.cs" />
+    <Compile Include="Sandbox\PushVolumeEntity.cs" />
+    <Compile Include="Sandbox\ShatterGlass.cs" />
+    <Compile Include="Sandbox\Sky.cs" />
+    <Compile Include="Sandbox\SlideConstraint.cs" />
+    <Compile Include="Sandbox\SoundEventEntity.cs" />
+    <Compile Include="Sandbox\SoundscapeRadiusEntity.cs" />
+    <Compile Include="Sandbox\SoundscapeSystem.cs" />
+    <Compile Include="Sandbox\SpawnPoint.cs" />
+    <Compile Include="Sandbox\SpectateRagdollCamera.cs" />
+    <Compile Include="Sandbox\SpringConstraint.cs" />
+    <Compile Include="Sandbox\StalkerBaseCamera.cs" />
+    <Compile Include="Sandbox\StandardPlayerAnimator.cs" />
+    <Compile Include="Sandbox\StandardPostProcess.cs" />
+    <Compile Include="Sandbox\SurfaceExtension.cs" />
+    <Compile Include="Sandbox\TeleportVolumeEntity.cs" />
+    <Compile Include="Sandbox\ThirdPersonCamera.cs" />
+    <Compile Include="Sandbox\ToneMappingEntity.cs" />
+    <Compile Include="Sandbox\TriggerHurt.cs" />
+    <Compile Include="Sandbox\TriggerMultiple.cs" />
+    <Compile Include="Sandbox\TriggerOnce.cs" />
+    <Compile Include="Sandbox\TriggerTeleport.cs" />
+    <Compile Include="Sandbox\UI\Button.cs" />
+    <Compile Include="Sandbox\UI\ButtonGroup.cs" />
+    <Compile Include="Sandbox\UI\ChatBox.cs" />
+    <Compile Include="Sandbox\UI\ChatEntry.cs" />
+    <Compile Include="Sandbox\UI\Checkbox.cs" />
+    <Compile Include="Sandbox\UI\Construct\ButtonConstructor.cs" />
+    <Compile Include="Sandbox\UI\Construct\ButtonGroupConstructor.cs" />
+    <Compile Include="Sandbox\UI\Construct\IconPanelConstructor.cs" />
+    <Compile Include="Sandbox\UI\Construct\LabelConstructor.cs" />
+    <Compile Include="Sandbox\UI\Construct\SliderConstructor.cs" />
+    <Compile Include="Sandbox\UI\Construct\SliderWithEntryConstructor.cs" />
+    <Compile Include="Sandbox\UI\Construct\TextEntryConstructor.cs" />
+    <Compile Include="Sandbox\UI\ConvarToggleButton.cs" />
+    <Compile Include="Sandbox\UI\DropDown.cs" />
+    <Compile Include="Sandbox\UI\Emoji.cs" />
+    <Compile Include="Sandbox\UI\Field.cs" />
+    <Compile Include="Sandbox\UI\FieldControl.cs" />
+    <Compile Include="Sandbox\UI\Form.cs" />
+    <Compile Include="Sandbox\UI\IconPanel.cs" />
+    <Compile Include="Sandbox\UI\IInputControl.cs" />
+    <Compile Include="Sandbox\UI\Label.cs" />
+    <Compile Include="Sandbox\UI\Menu.cs" />
+    <Compile Include="Sandbox\UI\Option.cs" />
+    <Compile Include="Sandbox\UI\Popup.cs" />
+    <Compile Include="Sandbox\UI\PopupButton.cs" />
+    <Compile Include="Sandbox\UI\Scoreboard.cs" />
+    <Compile Include="Sandbox\UI\ScoreboardEntry.cs" />
+    <Compile Include="Sandbox\UI\Slider.cs" />
+    <Compile Include="Sandbox\UI\Slider2D.cs" />
+    <Compile Include="Sandbox\UI\SliderEntry.cs" />
+    <Compile Include="Sandbox\UI\SplitContainer.cs" />
+    <Compile Include="Sandbox\UI\Switch.cs" />
+    <Compile Include="Sandbox\UI\TabContainer.cs" />
+    <Compile Include="Sandbox\UI\Tests\BaseVirtualScrollPanel.cs" />
+    <Compile Include="Sandbox\UI\Tests\GridLayout.cs" />
+    <Compile Include="Sandbox\UI\Tests\VirtualScrollPanel.2.cs" />
+    <Compile Include="Sandbox\UI\Tests\VirtualScrollPanel.cs" />
+    <Compile Include="Sandbox\UI\TextEntry.cs" />
+    <Compile Include="Sandbox\UI\WorldPanel.cs" />
+    <Compile Include="Sandbox\Unstuck.cs" />
+    <Compile Include="Sandbox\VelocityClipPlanes.cs" />
+    <Compile Include="Sandbox\VertexBufferExtenison.cs" />
+    <Compile Include="Sandbox\VoxelChunk.cs" />
+    <Compile Include="Sandbox\VoxelSurface.cs" />
+    <Compile Include="Sandbox\WalkController.cs" />
+    <Compile Include="Sandbox\Water.cs" />
+    <Compile Include="Sandbox\WaterController.cs" />
+    <Compile Include="Sandbox\WaterFunc.cs" />
+    <Compile Include="Sandbox\WaterSceneObject.cs" />
+    <Compile Include="StalkerRP\Anomaly\AnomalyBase.cs" />
+    <Compile Include="StalkerRP\Anomaly\AnomalyBurner.cs" />
+    <Compile Include="StalkerRP\Anomaly\AnomalyCannon.cs" />
+    <Compile Include="StalkerRP\Anomaly\AnomalyComet.cs" />
+    <Compile Include="StalkerRP\Anomaly\AnomalyElectro.cs" />
+    <Compile Include="StalkerRP\Anomaly\AnomalyFruitPunch.cs" />
+    <Compile Include="StalkerRP\Anomaly\AnomalyGas.cs" />
+    <Compile Include="StalkerRP\Anomaly\AnomalyMoving.cs" />
+    <Compile Include="StalkerRP\Anomaly\AnomalyTrigger.cs" />
+    <Compile Include="StalkerRP\Anomaly\AnomalyVortex.cs" />
+    <Compile Include="StalkerRP\Anomaly\AnomalyWhirlyGig.cs" />
+    <Compile Include="StalkerRP\Anomaly\BurnerEntityTrigger.cs" />
+    <Compile Include="StalkerRP\BaseCarriable.cs" />
+    <Compile Include="StalkerRP\BaseNPCState.cs" />
+    <Compile Include="StalkerRP\BasePlayerController.cs" />
+    <Compile Include="StalkerRP\BaseWeapon.cs" />
+    <Compile Include="StalkerRP\BleedComponent.cs" />
+    <Compile Include="StalkerRP\Bolt.cs" />
+    <Compile Include="StalkerRP\BoltProjectile.cs" />
+    <Compile Include="StalkerRP\BulletPhysBase.cs" />
+    <Compile Include="StalkerRP\BulletPool.cs" />
+    <Compile Include="StalkerRP\BulletWhizzComponent.cs" />
+    <Compile Include="StalkerRP\Camera\CameraShake.cs" />
+    <Compile Include="StalkerRP\Carriable.cs" />
+    <Compile Include="StalkerRP\ClientsideGib.cs" />
+    <Compile Include="StalkerRP\CoverFinder.cs" />
+    <Compile Include="StalkerRP\DamageEffectBase.cs" />
+    <Compile Include="StalkerRP\DamageEffectChem.cs" />
+    <Compile Include="StalkerRP\DamageEffectFlame.cs" />
+    <Compile Include="StalkerRP\DamageEffectShock.cs" />
+    <Compile Include="StalkerRP\DamageEffectsManager.cs" />
+    <Compile Include="StalkerRP\DeathRagdoll.cs" />
+    <Compile Include="StalkerRP\Debug\DebugCommandAttribute.cs" />
+    <Compile Include="StalkerRP\Debug\DebugCommands.cs" />
+    <Compile Include="StalkerRP\Debug\DebugEntityCategories.cs" />
+    <Compile Include="StalkerRP\Debug\DebugSpawnableAttribute.cs" />
+    <Compile Include="StalkerRP\Debug\DebugTags.cs" />
+    <Compile Include="StalkerRP\Debug\UI\CollapsePanel.cs" />
+    <Compile Include="StalkerRP\Debug\UI\DebugCommandsPanel.cs" />
+    <Compile Include="StalkerRP\Debug\UI\DebugMenu.cs" />
+    <Compile Include="StalkerRP\Duck.cs" />
+    <Compile Include="StalkerRP\EntityExtensions.cs" />
+    <Compile Include="StalkerRP\EntityPool.cs" />
+    <Compile Include="StalkerRP\EntityTrigger.cs" />
+    <Compile Include="StalkerRP\F1Grenade.cs" />
+    <Compile Include="StalkerRP\F1GrenadeProjectile.cs" />
+    <Compile Include="StalkerRP\FirstPersonCamera.cs" />
+    <Compile Include="StalkerRP\FloatingCamera.cs" />
+    <Compile Include="StalkerRP\FlyingController.cs" />
+    <Compile Include="StalkerRP\FortuneUtil.cs" />
+    <Compile Include="StalkerRP\HeadMovementComponent.cs" />
+    <Compile Include="StalkerRP\HealthComponent.cs" />
+    <Compile Include="StalkerRP\HitboxIndex.cs" />
+    <Compile Include="StalkerRP\HitGroup.cs" />
+    <Compile Include="StalkerRP\HoldType.cs" />
+    <Compile Include="StalkerRP\IBoltable.cs" />
+    <Compile Include="StalkerRP\Inventory\AmmoItemResource.cs" />
+    <Compile Include="StalkerRP\Inventory\AmmoTest.cs" />
+    <Compile Include="StalkerRP\Inventory\AmmoType.cs" />
+    <Compile Include="StalkerRP\Inventory\BackpackTest.cs" />
+    <Compile Include="StalkerRP\Inventory\ClientInventoryManager.cs" />
+    <Compile Include="StalkerRP\Inventory\Container.cs" />
+    <Compile Include="StalkerRP\Inventory\Gear\ArmorSlot.cs" />
+    <Compile Include="StalkerRP\Inventory\Gear\BackpackSlot.cs" />
+    <Compile Include="StalkerRP\Inventory\Gear\EquipmentComponent.cs" />
+    <Compile Include="StalkerRP\Inventory\Gear\EquipmentType.cs" />
+    <Compile Include="StalkerRP\Inventory\Gear\GearSlot.cs" />
+    <Compile Include="StalkerRP\Inventory\Gear\HeadGearSlot.cs" />
+    <Compile Include="StalkerRP\Inventory\Gear\HelmetSlot.cs" />
+    <Compile Include="StalkerRP\Inventory\Gear\SlotID.cs" />
+    <Compile Include="StalkerRP\Inventory\Gear\WeaponSlot.cs" />
+    <Compile Include="StalkerRP\Inventory\GridPosition.cs" />
+    <Compile Include="StalkerRP\Inventory\GridSize.cs" />
+    <Compile Include="StalkerRP\Inventory\HeadGearComponent.cs" />
+    <Compile Include="StalkerRP\Inventory\HeadGearEntity.cs" />
+    <Compile Include="StalkerRP\Inventory\HeadGearResource.cs" />
+    <Compile Include="StalkerRP\Inventory\HeadGearTest.cs" />
+    <Compile Include="StalkerRP\Inventory\Inventory.cs" />
+    <Compile Include="StalkerRP\Inventory\InventoryComponent.cs" />
+    <Compile Include="StalkerRP\Inventory\InventoryDropRequest.cs" />
+    <Compile Include="StalkerRP\Inventory\InventoryEquipRequest.cs" />
+    <Compile Include="StalkerRP\Inventory\InventoryMergeStacksRequest.cs" />
+    <Compile Include="StalkerRP\Inventory\InventoryMoveRequest.cs" />
+    <Compile Include="StalkerRP\Inventory\InventorySplitStackRequest.cs" />
+    <Compile Include="StalkerRP\Inventory\InventoryStoreFromGearSlotRequest.cs" />
+    <Compile Include="StalkerRP\Inventory\InventoryStoreRequest.cs" />
+    <Compile Include="StalkerRP\Inventory\InventoryUnequipRequest.cs" />
+    <Compile Include="StalkerRP\Inventory\Item.cs" />
+    <Compile Include="StalkerRP\Inventory\ItemCategory.cs" />
+    <Compile Include="StalkerRP\Inventory\ItemDataExtensions.cs" />
+    <Compile Include="StalkerRP\Inventory\ItemEntity.cs" />
+    <Compile Include="StalkerRP\Inventory\ItemResource.cs" />
+    <Compile Include="StalkerRP\Inventory\MollepackTest.cs" />
+    <Compile Include="StalkerRP\Inventory\ServerInventoryManager.cs" />
+    <Compile Include="StalkerRP\Inventory\StashEntity.cs" />
+    <Compile Include="StalkerRP\Inventory\StashResource.cs" />
+    <Compile Include="StalkerRP\Inventory\StashTest.cs" />
+    <Compile Include="StalkerRP\Inventory\StashTrigger.cs" />
+    <Compile Include="StalkerRP\Inventory\StorageItemResource.cs" />
+    <Compile Include="StalkerRP\Inventory\UI\GearSlotItemPanel.cs" />
+    <Compile Include="StalkerRP\Inventory\UI\GearSlotPanel.cs" />
+    <Compile Include="StalkerRP\Inventory\UI\InventoryContainerPanel.cs" />
+    <Compile Include="StalkerRP\Inventory\UI\InventoryItemActionPanel.cs" />
+    <Compile Include="StalkerRP\Inventory\UI\InventoryItemDragPanel.cs" />
+    <Compile Include="StalkerRP\Inventory\UI\InventoryItemPanel.cs" />
+    <Compile Include="StalkerRP\Inventory\UI\InventoryPage.cs" />
+    <Compile Include="StalkerRP\Inventory\UI\InventoryPanel.cs" />
+    <Compile Include="StalkerRP\Inventory\UI\PlayerGear.cs" />
+    <Compile Include="StalkerRP\Inventory\UI\StalkerGearTab.cs" />
+    <Compile Include="StalkerRP\Inventory\UI\StalkerHealthTab.cs" />
+    <Compile Include="StalkerRP\Inventory\UI\StalkerMenu.cs" />
+    <Compile Include="StalkerRP\Inventory\WeaponItemResource.cs" />
+    <Compile Include="StalkerRP\IPsyCreature.cs" />
+    <Compile Include="StalkerRP\IPsyIllusion.cs" />
+    <Compile Include="StalkerRP\ITrigger.cs" />
+    <Compile Include="StalkerRP\LeanComponent.cs" />
+    <Compile Include="StalkerRP\LimbArm.cs" />
+    <Compile Include="StalkerRP\LimbBase.cs" />
+    <Compile Include="StalkerRP\LimbHead.cs" />
+    <Compile Include="StalkerRP\LimbLeg.cs" />
+    <Compile Include="StalkerRP\LimbStomach.cs" />
+    <Compile Include="StalkerRP\LimbTorso.cs" />
+    <Compile Include="StalkerRP\NetUtil.cs" />
+    <Compile Include="StalkerRP\NoclipController.cs" />
+    <Compile Include="StalkerRP\NPCSpawnManager.cs" />
+    <Compile Include="StalkerRP\NPCSpawnPoint.cs" />
+    <Compile Include="StalkerRP\NPCStateMachine.cs" />
+    <Compile Include="StalkerRP\NPC\BlindDogChargeState.cs" />
+    <Compile Include="StalkerRP\NPC\BlindDogCircleState.cs" />
+    <Compile Include="StalkerRP\NPC\BlindDogFleeState.cs" />
+    <Compile Include="StalkerRP\NPC\BlindDogGroup.cs" />
+    <Compile Include="StalkerRP\NPC\BlindDogIdleState.cs" />
+    <Compile Include="StalkerRP\NPC\BlindDogLeapState.cs" />
+    <Compile Include="StalkerRP\NPC\BlindDogMeleeState.cs" />
+    <Compile Include="StalkerRP\NPC\BlindDogMovement.cs" />
+    <Compile Include="StalkerRP\NPC\BlindDogNPC.cs" />
+    <Compile Include="StalkerRP\NPC\BlindDogStaggerState.cs" />
+    <Compile Include="StalkerRP\NPC\BloodSuckerAttackState.cs" />
+    <Compile Include="StalkerRP\NPC\BloodSuckerCircleState.cs" />
+    <Compile Include="StalkerRP\NPC\BloodSuckerIdleState.cs" />
+    <Compile Include="StalkerRP\NPC\BloodSuckerNPC.cs" />
+    <Compile Include="StalkerRP\NPC\BloodSuckerTauntState.cs" />
+    <Compile Include="StalkerRP\NPC\BoarChargeState.cs" />
+    <Compile Include="StalkerRP\NPC\BoarCircleState.cs" />
+    <Compile Include="StalkerRP\NPC\BoarFleeState.cs" />
+    <Compile Include="StalkerRP\NPC\BoarIdleState.cs" />
+    <Compile Include="StalkerRP\NPC\BoarLungeState.cs" />
+    <Compile Include="StalkerRP\NPC\BoarMeleeState.cs" />
+    <Compile Include="StalkerRP\NPC\BoarMovement.cs" />
+    <Compile Include="StalkerRP\NPC\BoarNPC.cs" />
+    <Compile Include="StalkerRP\NPC\BoarStaggerState.cs" />
+    <Compile Include="StalkerRP\NPC\BurerChaseState.cs" />
+    <Compile Include="StalkerRP\NPC\BurerFleeState.cs" />
+    <Compile Include="StalkerRP\NPC\BurerIdleState.cs" />
+    <Compile Include="StalkerRP\NPC\BurerMeleeState.cs" />
+    <Compile Include="StalkerRP\NPC\BurerNPC.cs" />
+    <Compile Include="StalkerRP\NPC\BurerPsyCrushState.cs" />
+    <Compile Include="StalkerRP\NPC\BurerPsyWaveEntity.cs" />
+    <Compile Include="StalkerRP\NPC\BurerPsyWaveState.cs" />
+    <Compile Include="StalkerRP\NPC\BurerShieldState.cs" />
+    <Compile Include="StalkerRP\NPC\BurerTelekinesisState.cs" />
+    <Compile Include="StalkerRP\NPC\CatGroup.cs" />
+    <Compile Include="StalkerRP\NPC\CatNPC.cs" />
+    <Compile Include="StalkerRP\NPC\ChimeraChaseState.cs" />
+    <Compile Include="StalkerRP\NPC\ChimeraIdleState.cs" />
+    <Compile Include="StalkerRP\NPC\ChimeraLeapState.cs" />
+    <Compile Include="StalkerRP\NPC\ChimeraNPC.cs" />
+    <Compile Include="StalkerRP\NPC\ChimeraState.cs" />
+    <Compile Include="StalkerRP\NPC\ControllerChaseState.cs" />
+    <Compile Include="StalkerRP\NPC\ControllerDominateState.cs" />
+    <Compile Include="StalkerRP\NPC\ControllerIdleState.cs" />
+    <Compile Include="StalkerRP\NPC\ControllerMeleeState.cs" />
+    <Compile Include="StalkerRP\NPC\ControllerNPC.cs" />
+    <Compile Include="StalkerRP\NPC\ControllerPsyBoltState.cs" />
+    <Compile Include="StalkerRP\NPC\ControllerStaggerState.cs" />
+    <Compile Include="StalkerRP\NPC\CreatureIdentity.cs" />
+    <Compile Include="StalkerRP\NPC\FleshAlphaNPC.cs" />
+    <Compile Include="StalkerRP\NPC\FleshChargeState.cs" />
+    <Compile Include="StalkerRP\NPC\FleshCircleState.cs" />
+    <Compile Include="StalkerRP\NPC\FleshFleeState.cs" />
+    <Compile Include="StalkerRP\NPC\FleshGroup.cs" />
+    <Compile Include="StalkerRP\NPC\FleshIdleState.cs" />
+    <Compile Include="StalkerRP\NPC\FleshMeleeState.cs" />
+    <Compile Include="StalkerRP\NPC\FleshMovement.cs" />
+    <Compile Include="StalkerRP\NPC\FleshNPC.cs" />
+    <Compile Include="StalkerRP\NPC\FleshStaggerState.cs" />
+    <Compile Include="StalkerRP\NPC\GenericFollowPathState.cs" />
+    <Compile Include="StalkerRP\NPC\GenericFollowState.cs" />
+    <Compile Include="StalkerRP\NPC\GenericNPCState.cs" />
+    <Compile Include="StalkerRP\NPC\GiantChaseState.cs" />
+    <Compile Include="StalkerRP\NPC\GiantIdleState.cs" />
+    <Compile Include="StalkerRP\NPC\GiantNPC.cs" />
+    <Compile Include="StalkerRP\NPC\GiantStompState.cs" />
+    <Compile Include="StalkerRP\NPC\IzlomChaseState.cs" />
+    <Compile Include="StalkerRP\NPC\IzlomIdleState.cs" />
+    <Compile Include="StalkerRP\NPC\IzlomMeleeState.cs" />
+    <Compile Include="StalkerRP\NPC\IzlomNPC.cs" />
+    <Compile Include="StalkerRP\NPC\KarlikChaseState.cs" />
+    <Compile Include="StalkerRP\NPC\KarlikCircleState.cs" />
+    <Compile Include="StalkerRP\NPC\KarlikIdleState.cs" />
+    <Compile Include="StalkerRP\NPC\KarlikMeleeState.cs" />
+    <Compile Include="StalkerRP\NPC\KarlikNPC.cs" />
+    <Compile Include="StalkerRP\NPC\LimbTargetResource.cs" />
+    <Compile Include="StalkerRP\NPC\NPCAnimParameters.cs" />
+    <Compile Include="StalkerRP\NPC\NPCBase.cs" />
+    <Compile Include="StalkerRP\NPC\NPCGroup.cs" />
+    <Compile Include="StalkerRP\NPC\NPCMovementBase.cs" />
+    <Compile Include="StalkerRP\NPC\NPCMovementDragTurn.cs" />
+    <Compile Include="StalkerRP\NPC\NPCMovementSlowTurn.cs" />
+    <Compile Include="StalkerRP\NPC\NPCResource.cs" />
+    <Compile Include="StalkerRP\NPC\NPCState.cs" />
+    <Compile Include="StalkerRP\NPC\PoltergeistNPC.cs" />
+    <Compile Include="StalkerRP\NPC\PoltergeistRoamingState.cs" />
+    <Compile Include="StalkerRP\NPC\PseudoDogChargeState.cs" />
+    <Compile Include="StalkerRP\NPC\PseudoDogCircleState.cs" />
+    <Compile Include="StalkerRP\NPC\PseudoDogDodgeState.cs" />
+    <Compile Include="StalkerRP\NPC\PseudoDogFleeState.cs" />
+    <Compile Include="StalkerRP\NPC\PseudoDogIdleState.cs" />
+    <Compile Include="StalkerRP\NPC\PseudoDogMeleeState.cs" />
+    <Compile Include="StalkerRP\NPC\PseudoDogMovement.cs" />
+    <Compile Include="StalkerRP\NPC\PseudoDogNPC.cs" />
+    <Compile Include="StalkerRP\NPC\PseudoDogPsyWaveEntity.cs" />
+    <Compile Include="StalkerRP\NPC\PseudoDogPsyWaveState.cs" />
+    <Compile Include="StalkerRP\NPC\PseudoDogStaggerState.cs" />
+    <Compile Include="StalkerRP\NPC\PseuodoDogLeapState.cs" />
+    <Compile Include="StalkerRP\NPC\PsyDamageEmitterComponent.cs" />
+    <Compile Include="StalkerRP\NPC\PsyDogChargeState.cs" />
+    <Compile Include="StalkerRP\NPC\PsyDogCircleState.cs" />
+    <Compile Include="StalkerRP\NPC\PsyDogCreatedState.cs" />
+    <Compile Include="StalkerRP\NPC\PsyDogDodgeState.cs" />
+    <Compile Include="StalkerRP\NPC\PsyDogFleeState.cs" />
+    <Compile Include="StalkerRP\NPC\PsyDogHideState.cs" />
+    <Compile Include="StalkerRP\NPC\PsyDogIdleState.cs" />
+    <Compile Include="StalkerRP\NPC\PsyDogIllusionGroup.cs" />
+    <Compile Include="StalkerRP\NPC\PsyDogIllusionNPC.cs" />
+    <Compile Include="StalkerRP\NPC\PsyDogLeapState.cs" />
+    <Compile Include="StalkerRP\NPC\PsyDogMeleeState.cs" />
+    <Compile Include="StalkerRP\NPC\PsyDogNPC.cs" />
+    <Compile Include="StalkerRP\NPC\PsyDogStaggerState.cs" />
+    <Compile Include="StalkerRP\NPC\PsyDogSummonState.cs" />
+    <Compile Include="StalkerRP\NPC\PsySuckerIllusionNPC.cs" />
+    <Compile Include="StalkerRP\NPC\PsySuckerNPC.cs" />
+    <Compile Include="StalkerRP\NPC\PyrogeistBurnerEntity.cs" />
+    <Compile Include="StalkerRP\NPC\PyrogeistNPC.cs" />
+    <Compile Include="StalkerRP\NPC\PyrogeistRoamingState.cs" />
+    <Compile Include="StalkerRP\NPC\SnorkChaseState.cs" />
+    <Compile Include="StalkerRP\NPC\SnorkFlankState.cs" />
+    <Compile Include="StalkerRP\NPC\SnorkIdleState.cs" />
+    <Compile Include="StalkerRP\NPC\SnorkLeapState.cs" />
+    <Compile Include="StalkerRP\NPC\SnorkMeleeState.cs" />
+    <Compile Include="StalkerRP\NPC\SnorkNPC.cs" />
+    <Compile Include="StalkerRP\NPC\TargetComponent.cs" />
+    <Compile Include="StalkerRP\NPC\TargetingComponent.cs" />
+    <Compile Include="StalkerRP\NPC\TushkanoChaseState.cs" />
+    <Compile Include="StalkerRP\NPC\TushkanoFleeState.cs" />
+    <Compile Include="StalkerRP\NPC\TushkanoGroup.cs" />
+    <Compile Include="StalkerRP\NPC\TushkanoIdleState.cs" />
+    <Compile Include="StalkerRP\NPC\TushkanoMeleeState.cs" />
+    <Compile Include="StalkerRP\NPC\TushkanoNPC.cs" />
+    <Compile Include="StalkerRP\NPC\ZombieChaseState.cs" />
+    <Compile Include="StalkerRP\NPC\ZombieFakeDeathState.cs" />
+    <Compile Include="StalkerRP\NPC\ZombieIdleState.cs" />
+    <Compile Include="StalkerRP\NPC\ZombieNPC.cs" />
+    <Compile Include="StalkerRP\PawnAnimator.cs" />
+    <Compile Include="StalkerRP\PawnController.cs" />
+    <Compile Include="StalkerRP\Player.cs" />
+    <Compile Include="StalkerRP\PlayerStatsResource.cs" />
+    <Compile Include="StalkerRP\PostProcessing\EffectsPostProcessManager.cs" />
+    <Compile Include="StalkerRP\PostProcessing\HealthPostProcessManager.cs" />
+    <Compile Include="StalkerRP\PostProcessing\PostProcessEmitterComponent.cs" />
+    <Compile Include="StalkerRP\PostProcessing\PsyPostProcessManager.cs" />
+    <Compile Include="StalkerRP\PostProcessing\StalkerPostProcessingBase.cs" />
+    <Compile Include="StalkerRP\PsyDamageEmitterTrigger.cs" />
+    <Compile Include="StalkerRP\PsyHealthComponent.cs" />
+    <Compile Include="StalkerRP\SpectateRagdollCamera.cs" />
+    <Compile Include="StalkerRP\StalkerGrenadeProjectileBase.cs" />
+    <Compile Include="StalkerRP\StalkerPlayer.cs" />
+    <Compile Include="StalkerRP\StalkerProjectileBase.cs" />
+    <Compile Include="StalkerRP\StalkerResource.cs" />
+    <Compile Include="StalkerRP\StalkerScopedWeaponBase.cs" />
+    <Compile Include="StalkerRP\StalkerShotgunBase.cs" />
+    <Compile Include="StalkerRP\StalkerTags.cs" />
+    <Compile Include="StalkerRP\StalkerThrownWeaponBase.cs" />
+    <Compile Include="StalkerRP\StalkerViewModel.cs" />
+    <Compile Include="StalkerRP\StalkerWalkController.cs" />
+    <Compile Include="StalkerRP\StalkerWeaponBase.cs" />
+    <Compile Include="StalkerRP\StaminaComponent.cs" />
+    <Compile Include="StalkerRP\StandardPlayerAnimator.cs" />
+    <Compile Include="StalkerRP\State.cs" />
+    <Compile Include="StalkerRP\StateMachine.cs" />
+    <Compile Include="StalkerRP\Stats\Health.cs" />
+    <Compile Include="StalkerRP\Stats\Movement.cs" />
+    <Compile Include="StalkerRP\TelekinesisThrowComponent.cs" />
+    <Compile Include="StalkerRP\ThirdPersonCamera.cs" />
+    <Compile Include="StalkerRP\UI\DamageIndicator.cs" />
+    <Compile Include="StalkerRP\UI\LimbHealthHUD.cs" />
+    <Compile Include="StalkerRP\UI\StalkerHUD.cs" />
+    <Compile Include="StalkerRP\UI\StaminaBar.cs" />
+    <Compile Include="StalkerRP\Unstuck.cs" />
+    <Compile Include="StalkerRP\VoiceSFXComponent.cs" />
+    <Compile Include="StalkerRP\WalkController.cs" />
+    <Compile Include="StalkerRP\Weapon.cs" />
+    <Compile Include="System\Runtime\CompilerServices\NullableAttribute.cs" />
+    <Compile Include="System\Runtime\CompilerServices\NullableContextAttribute.cs" />
+    <Compile Include="ViewModel.cs" />
+    <Compile Include="VoiceEntry.cs" />
+    <Compile Include="VoiceList.cs" />
+    <Compile Include="VoiceSpeaker.cs" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>
